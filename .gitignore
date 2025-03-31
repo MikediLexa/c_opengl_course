@@ -1,0 +1,4 @@
+build/
+*.o
+c_opengl_course
+
