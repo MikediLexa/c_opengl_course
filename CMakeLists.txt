@@ -1,28 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
-project(@PROJECT_NAME@)
+project(c_opengl_course)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-include_directories(include)
+# GLFW
+add_subdirectory(libs/glfw)
+include_directories(libs/glfw/include)
 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
-add_executable(${PROJECT_NAME} ${SOURCES})
+# GLAD
+add_library(glad libs/glad/src/gl.c)
+target_include_directories(glad PUBLIC libs/glad/include)
 
-# Catch2 über FetchContent einbinden
-include(FetchContent)
-FetchContent_Declare(
-  catch2
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG v3.5.4
-)
-FetchContent_MakeAvailable(catch2)
+# GLM
+include_directories(libs/glm)
 
-# Tests
-file(GLOB TEST_SOURCES "tests/*.cpp")
-add_executable(tests ${TEST_SOURCES} ${SOURCES})
-target_link_libraries(tests Catch2::Catch2WithMain)
+# Source files
+file(GLOB SRC_FILES src/*.cpp)
 
-enable_testing()
-include(CTest)
-add_test(NAME AllTests COMMAND $<TARGET_FILE:tests>)
+add_executable(c_opengl_course ${SRC_FILES})
+target_link_libraries(c_opengl_course glfw glad)

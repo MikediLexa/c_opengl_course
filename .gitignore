@@ -1,4 +1,42 @@
-build/
-*.o
-c_opengl_course
+# Build-Ordner
+/build/
+/out/
+/bin/
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
 
+/libs
+
+# GLAD generiertes Build-Zeug (falls du es buildest)
+libs/glad/build/
+
+# macOS spezifisch
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs (CLion, etc.)
+.idea/
+*.iml
+
+# Log- und temporäre Dateien
+*.log
+*.tmp
+*.swp
+*.bak
+*~
+
+# Objektdateien & Executables
+*.o
+*.obj
+*.exe
+*.out
+
+# Sonstige generierte Dateien
+*.dSYM/
