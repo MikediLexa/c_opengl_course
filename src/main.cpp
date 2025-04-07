@@ -49,7 +49,8 @@ int main() {
     float vertices [] = {
         -0.5f, -0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
-        0.5f, 0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f,
+        //-0.5f, 0.5f, 0.0f,
     };
 
 
@@ -132,6 +133,7 @@ int main() {
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 4);
 
         glfwSwapBuffers(window);
     }
