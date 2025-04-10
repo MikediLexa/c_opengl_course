@@ -111,7 +111,7 @@ int main() {
     // Hier wird ein Vertex-Shader aufgebaut.
     // Managen des Speichers, aus dem der Vertex Shader herausarbeitet --> Vertex Buffer Objects (VBO)
     unsigned int VBO;
-    glGenBuffers(1, &VBO);
+    glGenBuffers(2, &VBO);
 
     // Verbinden des neu generierten Buffers mit dem buffer object GL_ARRAY_Buffer (von OpenGl)
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
